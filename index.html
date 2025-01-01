@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chako Lab</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      /* Custom CSS */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      section {
+        min-height: 100vh;
+        padding-top: 70px;
+      }
+
+      #products {
+        background-color: #ffe4b5;
+      }
+
+      #order {
+        background-color: #f7bce8;
+      }
+
+      .navbar {
+        background-color: #ff7f50 !important;
+      }
+
+      .navbar-brand,
+      .nav-link {
+        color: #000 !important;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: #fff !important;
+      }
+
+      #home {
+        background-image: url("GAMBAR/tumblr.png");
+        background-repeat: no-repeat;
+        background-size: cover; /* Atur agar gambar memenuhi area */
+        background-attachment: fixed; /* Agar gambar tidak bergerak saat di-scroll */
+        background-position: center;
+      }
+
+      .character-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .character {
+        width: 120px;
+        height: 200px;
+        position: relative;
+        margin: 0 1rem;
+      }
+
+      .sip-text {
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      .product-card {
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .buy-btn {
+        background-color: #ff7f50;
+        color: white;
+      }
+
+      .buy-btn:hover {
+        background-color: #ff6347;
+        color: white;
+      }
+
+      #orderForm {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">CHAKO LAB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#order">Order</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="d-flex align-items-center">
+      <div class="container text-center">
+        <h1 class="mb-4">Love The Planet, Use Your Tumblr!</h1>
+        <div class="d-flex justify-content-center align-items-center flex-wrap mb-4">
+          <h2 class="mx-4 fw-bold">Enjoy guild-free hydration with our eco-friendly</h2>
+        </div>
+        <h2 class="sip-text mb-4">CHAKO LAB©</h2>
+        <a href="#products" class="btn buy-btn btn-lg">Order Now</a>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">All Product</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/lemon.png" class="card-img-top" alt="Bo Bo Thermos in Lemon" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bo Bo Thermos in Lemon</h5>
+                <p class="card-text">Rp 347.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Bo Bo Thermos in Lemon', 347000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/taro.png" class="card-img-top" alt="Bo Bo Thermos in Taro" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bo Bo Thermos in Taro</h5>
+                <p class="card-text">Rp 347.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Bo Bo Thermos in Taro', 347000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/watermelon.png" class="card-img-top" alt="Bo Bo Thermos in Watermelon" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bo Bo Thermos in Watermelon</h5>
+                <p class="card-text">Rp 347.000</p>
+                <button class="btn buy-btn" disabled>Sold Out</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/pinkbening.png" class="card-img-top" alt="Lin Lin Tritan Plastic In Bubblegum" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Tritan Plastic In Bubblegum</h5>
+                <p class="card-text">Rp 332.500</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct(('Lin Lin Tritan Plastic In Bubblegum', 332500))">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/purple.png" class="card-img-top" alt="Lin Lin Thermos in Taro" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Thermos in Taro</h5>
+                <p class="card-text">Rp 475.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct(('Lin Lin Thermos in Taro', 475000))">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/white2.png" class="card-img-top" alt="Lin Lin Thermos in Yogurt" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Thermos in Yogurt</h5>
+                <p class="card-text">Rp 475.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct(('Lin Lin Thermos in Yogurt', 475000))">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/pink2.png" class="card-img-top" alt="Lin Lin Thermos in Watermelon" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Thermos in Watermelon</h5>
+                <p class="card-text">Rp 475.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Lin Lin Thermos in Watermelonon', 475000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/orange.png" class="card-img-top" alt="Lin Lin Thermos in Lemon" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Thermos in Lemon</h5>
+                <p class="card-text">Rp 475.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Lin Lin Thermos in Lemon', 475000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/blue.png" class="card-img-top" alt="Bawang Thermos cup in Blueberry" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bawang Thermos cup in Blueberry</h5>
+                <p class="card-text">Rp 540.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Bawang Thermos cup in Blueberry', 540000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/yellow.png" class="card-img-top" alt="Bawang Thermos cup in Lemon" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bawang Thermos cup in Lemon</h5>
+                <p class="card-text">Rp 540.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Bawang Thermos cup in Lemon', 540000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/pink.png" class="card-img-top" alt="Bawang Thermos cup in Strawbwerry" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bawang Thermos cup in Strawberry</h5>
+                <p class="card-text">Rp 540.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Bawang Thermos cup in Strawberry', 540000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/white.png" class="card-img-top" alt="Bawang Thermos cup in Yogurt" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bawang Thermos cup in Yogurt</h5>
+                <p class="card-text">Rp 540.000</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Bawang Thermos cup in Yogurt', 540000)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/black.png" class="card-img-top" alt="Square Cup in Cacao" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Square Cup in Cacao</h5>
+                <p class="card-text">Rp 427.500</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Square Cup in Cacao', 427500)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/peach.png" class="card-img-top" alt="Square Cup in Coral" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Square Cup in Coral</h5>
+                <p class="card-text">Rp 427.500</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Square Cup in Coral', 427500)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/blue2.png" class="card-img-top" alt="Square Cup in Milk" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Square Cup in Milk</h5>
+                <p class="card-text">Rp 427.500</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Square Cup in Milk', 427500)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/matcha.png" class="card-img-top" alt="Square Cup in Pistachio" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Square Cup in Pistachio</h5>
+                <p class="card-text">Rp 427.500</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Square Cup in Pistachio', 427500)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/yellowbening.png" class="card-img-top" alt="Lin Lin Tritan Plastic in Lime" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Tritan Plastic in Lime</h5>
+                <p class="card-text">Rp 332.500</p>
+                <a href="#order" class="btn buy-btn" onclick="selectProduct('Lin Lin Tritan Plastic in Limes', 332500)">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/coconut.png" class="card-img-top" alt="Lin Lin Tritan Plastic in Coconut" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Tritan Plastic in Coconut</h5>
+                <p class="card-text">Rp 332.500</p>
+                <button class="btn buy-btn" disabled>Sold Out</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/frost.png" class="card-img-top" alt="Lin Lin Tritan Plastic in Frost" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lin Lin Tritan Plastic in Frost</h5>
+                <p class="card-text">Rp 332.500</p>
+                <button class="btn buy-btn" disabled>Sold Out</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card product-card h-100">
+              <img src="GAMBAR/lollipop.png" class="card-img-top" alt="Bo Bo Ceramic In Lollipop" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bo Bo Ceramic In Lollipop</h5>
+                <p class="card-text">Rp 450.000</p>
+                <button class="btn buy-btn" disabled>Sold Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Place Your Order</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div id="selectedProduct" class="alert alert-info mb-4" style="display: none">
+              <h5 class="mb-0">Selected Product: <span id="productName"></span></h5>
+              <p class="mb-0">Price: Rp <span id="productPrice"></span></p>
+            </div>
+            <form id="orderForm">
+              <div class="mb-3">
+                <label for="productNameInput" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="productNameInput" name="produk" readonly required />
+              </div>
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="nama" required />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required />
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Shipping Address</label>
+                <textarea class="form-control" id="address" name="alamat" rows="3" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity" name="jumlah" min="1" value="1" required />
+              </div>
+              <button type="submit" class="btn buy-btn w-100">Place Order</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Highlight active nav item
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll("section");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").slice(1) === current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Handle product selection
+      function selectProduct(name, price) {
+        const productAlert = document.getElementById("selectedProduct");
+        const productNameInput = document.getElementById("productNameInput");
+
+        productAlert.style.display = "block";
+        document.getElementById("productName").textContent = `${name}`;
+        document.getElementById("productPrice").textContent = price.toLocaleString("id-ID");
+        productNameInput.value = `${name}`;
+      }
+
+      // Handle form submission
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzyL_kr3_BCAAUw9iCOG7KaTn498fLQ95rYJxbpX0W8xxPphxl9g6mUz09i1ahwQLH_pg/exec";
+      const form = document.getElementById("orderForm");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Show loading indicator
+        const submitButton = form.querySelector("button[type='submit']");
+        submitButton.disabled = true;
+        submitButton.textContent = "Placing Order...";
+
+        const formData = new FormData(form);
+
+        fetch(scriptURL, { method: "POST", body: formData })
+          .then((response) => {
+            alert("Order successfully placed!");
+            form.reset();
+            document.getElementById("selectedProduct").style.display = "none";
+            submitButton.disabled = false;
+            submitButton.textContent = "Place Order";
+          })
+          .catch((error) => {
+            alert("Error submitting the form: " + error.message);
+            submitButton.disabled = false;
+            submitButton.textContent = "Place Order";
+          });
+      });
+    </script>
+  </body>
+</html>
